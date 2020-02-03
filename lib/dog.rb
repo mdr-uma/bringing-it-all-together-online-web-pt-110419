@@ -40,7 +40,7 @@ class Dog
 
   def self.create(hash)
     binding.pry
-    dog = Dog.new(name, breed)
+    dog = Dog.new(hash)
     dog.save
     dog
   end
