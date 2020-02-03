@@ -49,13 +49,11 @@ class Dog
   end
 
   def self.find_by_id(id)
-    #  binding.pry
     sql = "SELECT * FROM dogs WHERE id = ? Limit 1"
     DB[:conn].execute(sql, id).map {|row| new_from_db(row)}.first
   end
 
   def self.new_from_db(row)
-    # binding.pry
     id = row[0]
     name = row[1]
     breed = row[2]
@@ -77,14 +75,11 @@ class Dog
       dog = self.create(name: name, breed: breed)
     end
     dog
-    # binding.pry
-
   end
 
   def update
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
-
 
 end
