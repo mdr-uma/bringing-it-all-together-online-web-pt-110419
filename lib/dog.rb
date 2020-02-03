@@ -46,7 +46,7 @@ class Dog
 
   def self.find_by_id(id)
      binding.pry
-    sql = "SELECT * FROM dogs WHERE id = ?"
+    sql = "SELECT * FROM dogs WHERE id = ? Limit 1"
     result = DB[:conn].execute(sql, id)[0]
     Dog.new(result[0], result[1], result[2])
   end
