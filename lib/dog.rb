@@ -69,7 +69,6 @@ class Dog
   end
 
   def self.find_or_create_by(name:, breed:)
-    binding.pry
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if !dog.empty?
       dog_data = dog[0]
@@ -78,6 +77,8 @@ class Dog
       dog = self.create(name: name, breed: breed)
     end
     dog
+    binding.pry
+
   end
 
   def update
