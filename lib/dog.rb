@@ -37,7 +37,8 @@ class Dog
       self
   end
 
-  def self.create(name: name, breed: breed)
+  def self.create(hash)
+    binding.pry
     dog = Dog.new(name, breed)
     dog.save
     dog
